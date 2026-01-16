@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - كشافة مارمينا المندرة</title>
+
+    <!-- (مكتبات الفايربيز) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body> <!-- (صفحة عامة - مش محمية) -->
+
+    <!-- 1. الشريط العلوي (الذكي) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/1001340900.jpg" alt="شعار كشافة مارمينا المندرة">
+            </a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="gallery.html">معرض الصور</a></li>
+                <li><a href="schedule.html">المواعيد</a></li>
+                <li><a href="manhag.html">المنهج الكشفي</a></li>
+                <li><a href="contact.html" class="active">تواصل معنا</a></li>
+                
+                <li id="login-btn-li"><a href="register.html" class="btn-register">تسجيل/دخول</a></li>
+                
+                <li id="user-welcome-li" class="user-welcome">
+                    <span id="user-welcome-text">أهلاً يا فلان</span>
+                </li>
+                
+                <li id="logout-btn-li" class="logout-btn">
+                    <a>تسجيل خروج</a>
+                </li>
+            </ul>
+
+            <div class="header-socials">
+                <a href="https://youtube.com/@stminascout?si=KHDA45lxA9D9uyI8" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@stminascout8?_r=1&_t=ZS-91Gkickmj7A" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- قسم التواصل (صفحة عامة) -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2><i class="fas fa-envelope"></i> تواصل معنا</h2>
+            <p>يسعدنا انضمامك أو إجابة أي استفسارات لديك.</p>
+            
+            <div class="contact-links">
+                <!-- غير الـ # باللينكات الصح -->
+                <a href="https://www.facebook.com/share/1B9YZSE9n1/" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                    صفحتنا على فيسبوك
+                </a>
+                <a href="https://www.instagram.com/st.minascout8?utm_source=qr&igsh=NG9yYjVyY2YydGZk" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    حسابنا على انستجرام
+                </a>
+                <a href="https://youtube.com/@stminascout?si=KHDA45lxA9D9uyI8" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    قناتنا على يوتيوب
+                </a>
+                <a href="https://www.tiktok.com/@stminascout8?_r=1&_t=ZS-91Gkickmj7A" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    حسابنا على تيك توك
+                </a>
+                <a href="tel:01220600914">
+                    <i class="fas fa-phone"></i>
+                    01220600914
+                </a>
+                   <a href="tel:01143741640">
+                    <i class="fas fa-phone"></i>
+                    01143741640
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 | جميع الحقوق محفوظة لكشافة مارمينا المندرة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

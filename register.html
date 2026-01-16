@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - كشافة مارمينا المندرة</title>
+
+    <!-- (مكتبات الفايربيز) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="register-page">
+
+    <!-- 1. الشريط العلوي (الذكي) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/1001340900.jpg" alt="شعار كشافة مارمينا المندرة">
+            </a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="gallery.html">معرض الصور</a></li>
+                <li><a href="schedule.html">المواعيد</a></li>
+                <li><a href="manhag.html">المنهج الكشفي</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                
+                <!-- (1) زرار تسجيل الدخول (هيختفي لو سجلت) -->
+                <li id="login-btn-li">
+                    <a href="register.html" class="btn-register active">تسجيل/دخول</a>
+                </li>
+                <!-- (2) رسالة الترحيب (هتظهر لو سجلت) -->
+                <li id="user-welcome-li" style="display: none;">
+                    <span class="user-welcome-text"></span>
+                </li>
+                <!-- (3) زرار تسجيل الخروج (هيظهر لو سجلت) -->
+                <li id="logout-btn-li" style="display: none;">
+                    <a href="#" id="logout-btn" class="btn-register">تسجيل خروج</a>
+                </li>
+            </ul>
+
+            <div class="header-socials">
+                <a href="https://youtube.com/@stminascout?si=KHDA45lxA9D9uyI8" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@stminascout8?_r=1&_t=ZS-91Gkickmj7A" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 2. قسم التسجيل والدخول -->
+    <section class="section register-section">
+        <div class="container">
+            <div class="form-container glass-card">
+                
+                <!-- الأزرار (Tabs) -->
+                <div class="form-tabs">
+                    <button class="tab-btn" onclick="showTab('login')">تسجيل الدخول</button>
+                    <button class="tab-btn active" onclick="showTab('signup')">إنشاء حساب جديد</button>
+                </div>
+
+                <!-- (1) فورم إنشاء حساب جديد -->
+                <div id="signup" class="form-content active">
+                    <h2>إنشاء حساب جديد</h2>
+                    <form id="signup-form">
+                        
+                        <!-- (تم شيل زرار جوجل من هنا) -->
+
+                        <div class="form-group">
+                            <label for="signup-name">الاسم (ثلاثي)</label>
+                            <input type="text" id="signup-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">البريد الإلكتروني</label>
+                            <input type="email" id="signup-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">كلمة المرور</label>
+                            <input type="password" id="signup-password" required>
+                        </div>
+                        <div id="signup-message" class="message-box"></div>
+                        <button type="submit" class="btn">إنشاء الحساب</button>
+                    </form>
+                </div>
+                
+                <!-- (2) فورم تسجيل الدخول -->
+                <div id="login" class="form-content">
+                    <h2>تسجيل الدخول</h2>
+                    <form id="login-form">
+
+                        <!-- (تم شيل زرار جوجل من هنا) -->
+
+                        <div class="form-group">
+                            <label for="login-email">البريد الإلكتروني</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">كلمة المرور</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        
+                        <a href="#" id="forgot-password-link" class="forgot-password">هل نسيت كلمة المرور؟</a>
+                        
+                        <div id="login-message" class="message-box"></div>
+                        <button type="submit" class="btn">دخول</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 | جميع الحقوق محفوظة لكشافة مارمينا المندرة.</p>
+        </div>
+    </footer>
+
+    <!-- ربط ملف الجافاسكريبت الرئيسي -->
+    <script src="script.js"></script>
+</body>
+</html>

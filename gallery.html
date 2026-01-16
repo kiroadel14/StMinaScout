@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور - كشافة مارمينا المندرة</title>
+
+    <!-- (مكتبات الفايربيز) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="protected"> <!-- (علامة مميزة لصفحة محمية) -->
+
+    <!-- 1. الشريط العلوي (الذكي) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/1001340900.jpg" alt="شعار كشافة مارمينا المندرة">
+            </a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="gallery.html" class="active">معرض الصور</a></li>
+                <li><a href="schedule.html">المواعيد</a></li>
+                <li><a href="manhag.html">المنهج الكشفي</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                
+                <li id="login-btn-li"><a href="register.html" class="btn-register">تسجيل/دخول</a></li>
+                
+                <li id="user-welcome-li" class="user-welcome">
+                    <span id="user-welcome-text">أهلاً يا فلان</span>
+                </li>
+                
+                <li id="logout-btn-li" class="logout-btn">
+                    <a>تسجيل خروج</a>
+                </li>
+            </ul>
+
+            <div class="header-socials">
+                <a href="https://youtube.com/@stminascout?si=KHDA45lxA9D9uyI8" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@stminascout8?_r=1&_t=ZS-91Gkickmj7A" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- (1) جدار الحماية (بيظهر للزوار) -->
+    <section class="section auth-wall" id="auth-wall">
+        <div class="container">
+            <div class="glass-card">
+                <h2><i class="fas fa-lock"></i> محتوى خاص بالأعضاء</h2>
+                <p>هذه الصفحة (معرض الصور) خاصة بأعضاء الكشافة فقط. من فضلك سجل دخولك لتتمكن من رؤية المحتوى.</p>
+                <a href="register.html" class="btn">تسجيل الدخول / إنشاء حساب</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- (2) المحتوى الحقيقي (بيظهر للأعضاء المسجلين) -->
+    <section id="protected-content" class="section">
+        <div class="container">
+            <h2><i class="fas fa-images"></i> معرض الصور</h2>
+            <p>ذكريات من معسكراتنا وأنشطتنا وخدماتنا.</p>
+            <div class="gallery-grid">
+                <!-- حط الصور بتاعتك هنا في مجلد images -->
+                <!-- <div class="gallery-item"><img src="images/camp-1.jpg" alt="صورة نشاط"></div> -->
+              <div class="gallery-item"><img src="images/photo1.jpg" alt="صورة من المعسكر"></div>
+              <div class="gallery-item"><img src="images/photo2.jpg" alt="صورة من الخدمة"></div>
+              <div class="gallery-item"><img src="images/photo3.jpg" alt="صورة من اجتماع"></div>
+              <div class="gallery-item"><img src="images/photo4.jpg" alt="صورة يوم كشفي"></div>
+               <div class="gallery-item"><img src="images/photo5.jpg" alt="صورة يوم كشفي"></div>
+                <div class="gallery-item"><img src="images/photo6.jpg" alt="صورة يوم كشفي"></div>
+                 <div class="gallery-item"><img src="images/photo7.jpg" alt="صورة يوم كشفي"></div>
+                  <div class="gallery-item"><img src="images/photo8.jpg" alt="صورة يوم كشفي"></div>
+                   <div class="gallery-item"><img src="images/photo9.jpg" alt="صورة يوم كشفي"></div>
+                    <div class="gallery-item"><img src="images/photo10.jpg" alt="صورة يوم كشفي"></div>
+                     <div class="gallery-item"><img src="images/photo11.jpg" alt="صورة يوم كشفي"></div>
+                      <div class="gallery-item"><img src="images/photo12.jpg" alt="صورة يوم كشفي"></div>
+                       <div class="gallery-item"><img src="images/photo13.jpg" alt="صورة يوم كشفي"></div>
+                        <div class="gallery-item"><img src="images/photo14.jpg" alt="صورة يوم كشفي"></div>
+                         <div class="gallery-item"><img src="images/photo15.jpg" alt="صورة يوم كشفي"></div>
+                          <div class="gallery-item"><img src="images/photo16.jpg" alt="صورة يوم كشفي"></div>
+                           <div class="gallery-item"><img src="images/photo17.jpg" alt="صورة يوم كشفي"></div>
+                            <div class="gallery-item"><img src="images/photo18.jpg" alt="صورة يوم كشفي"></div>
+                             <div class="gallery-item"><img src="images/photo19.jpg" alt="صورة يوم كشفي"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 | جميع الحقوق محفوظة لكشافة مارمينا المندرة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
