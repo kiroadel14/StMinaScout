@@ -644,3 +644,29 @@ body {
         padding: 2rem 1.5rem;
     }
 }
+.image-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 99999;            /* 🔥 أعلى من أي حاجة */
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    pointer-events: none;      /* 🔥 مهم جدًا */
+}
+
+.close-modal {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    font-size: 45px;
+    color: white;
+    cursor: pointer;
+    z-index: 100000;           /* 🔥 فوق المودال */
+}
