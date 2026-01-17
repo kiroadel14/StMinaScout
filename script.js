@@ -13,6 +13,7 @@ const firebaseConfig = {
 // (شيلنا كود جوجل من هنا)
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth(); // لعمليات التسجيل والدخول
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 const db = firebase.firestore(); // لعمليات تخزين البيانات (زي الاسم)
 
 // ▲▲▲▲▲ (1) كود مفاتيح الفايربيز (انتهى) ▲▲▲▲▲
@@ -288,3 +289,18 @@ function closeVideo() {
 
     popup.style.display = "none";
 }
+function closeImage(e) {
+    if (e) e.stopPropagation();
+    document.getElementById('imageModal').style.display = 'none';
+}
+
+document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.onclick = function () {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        modal.style.display = 'flex';
+        modalImg.src = this.src;
+    };
+});
+
